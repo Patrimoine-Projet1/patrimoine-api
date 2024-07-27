@@ -22,4 +22,9 @@ public class PatrimoineController {
   public Patrimoine crupdatePatrimoines(@RequestBody File file) {
     return patrimoineService.crupdatePatrimoines(file);
   }
+
+  @GetMapping("/patrimoines/{nom_patrimoine}")
+  public List<Patrimoine> getPatrimoineByNom(@RequestBody String nomPatrimoine, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size){
+    return patrimoineService.getPatrimoineByNom(nomPatrimoine, page, size);
+  }
 }

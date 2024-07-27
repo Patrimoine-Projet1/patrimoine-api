@@ -19,4 +19,8 @@ public class PatrimoineService {
   public Patrimoine crupdatePatrimoines(File file) {
     return patrimoineRepository.crupdatePatrimoines(file);
   }
+
+  public List<Patrimoine> getPatrimoineByNom(String nomPatrimoine, int page, int size){
+    return patrimoineRepository.getPatrimoineByNom(nomPatrimoine, page, size);
+  }
 }

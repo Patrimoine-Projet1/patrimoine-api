@@ -37,4 +37,9 @@ public class PatrimoineRepository {
     List<File> files = customBucketComponent.loadFilesFromS3(page, size);
     return files.stream().map(this::crupdatePatrimoines).toList();
   }
+
+  public List<Patrimoine> getPatrimoineByNom(String nomPatrimoine, int page, int size){
+    List<File> file = customBucketComponent.loadFilesFromS3(page, size);
+    return file.stream().map(this::crupdatePatrimoines).toList();
+  }
 }
