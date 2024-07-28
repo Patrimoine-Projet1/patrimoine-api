@@ -21,8 +21,8 @@ public class PatrimoineService {
     return patrimoineRepository.crupdatePatrimoines(file);
   }
 
-  public List<Patrimoine> getPatrimoineByNom(String nomPatrimoine, int page, int size) {
-    return patrimoineRepository.getPatrimoineByNom(nomPatrimoine, page, size);
+  public Patrimoine getPatrimoineByNom(String nomPatrimoine) {
+    return patrimoineRepository.getPatrimoineByNom(nomPatrimoine);
   }
 
   public Patrimoine crupdatePatrimoinePossessions(

@@ -2,6 +2,8 @@ package com.harena.api.file;
 
 import java.io.File;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.stereotype.Component;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
@@ -29,5 +31,9 @@ public class CustomBucketComponent {
     List<S3Object> contents = listObjectsV2Response.contents();
 
     return contents.stream().map(o -> bucketComponent.download(o.key())).toList();
+  }
+  //take the file corresponding to this name
+  public Optional<File> loadFilesFromS3(String filename) {
+    return Optional.of(bucketComponent.download(filename));
   }
 }

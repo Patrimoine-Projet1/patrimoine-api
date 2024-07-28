@@ -25,11 +25,8 @@ public class PatrimoineController {
   }
 
   @GetMapping("/patrimoines/{nom_patrimoine}")
-  public List<Patrimoine> getPatrimoineByNom(
-      @RequestBody String nomPatrimoine,
-      @RequestParam(defaultValue = "0") int page,
-      @RequestParam(defaultValue = "10") int size) {
-    return patrimoineService.getPatrimoineByNom(nomPatrimoine, page, size);
+  public Patrimoine getPatrimoineByNom(@RequestBody String nomPatrimoine) {
+    return patrimoineService.getPatrimoineByNom(nomPatrimoine);
   }
 
   @PostMapping("/patrimoines/{nom_patrimoine}/possessions")
