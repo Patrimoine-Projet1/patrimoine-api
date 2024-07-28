@@ -6,7 +6,6 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import school.hei.patrimoine.modele.Patrimoine;
-import school.hei.patrimoine.modele.possession.Possession;
 
 @AllArgsConstructor
 @RestController
@@ -25,15 +24,13 @@ public class PatrimoineController {
   }
 
   @GetMapping("/patrimoines/{nom_patrimoine}")
-  public Patrimoine getPatrimoineByNom(@RequestBody String nomPatrimoine) {
+  public Patrimoine getPatrimoineByNom(@RequestParam String nomPatrimoine) {
     return patrimoineService.getPatrimoineByNom(nomPatrimoine);
   }
 
   @PostMapping("/patrimoines/{nom_patrimoine}/possessions")
   public Patrimoine crupdatePatrimoinePossessions(
-      @RequestBody Possession possession,
-      @RequestBody File file,
-      @RequestParam String nomPatrimoine) {
-    return patrimoineService.crupdatePatrimoinePossessions(possession, file, nomPatrimoine);
+      @RequestBody File file, @RequestParam String nomPatrimoine) {
+    return patrimoineService.crupdatePatrimoinePossessions(file, nomPatrimoine);
   }
 }
