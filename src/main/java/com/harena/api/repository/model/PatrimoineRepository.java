@@ -84,4 +84,8 @@ public class PatrimoineRepository {
 
     return crupdatePossession(file);
   }
+
+  public void deletePatrimoinePossessionByNom(String nomPossession) {
+    customBucketComponent.deleteFileFromS3Bucket(nomPossession);
+  }
 }

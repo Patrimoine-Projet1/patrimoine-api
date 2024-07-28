@@ -36,4 +36,8 @@ public class PatrimoineService {
   public Possession getPatrimoinePossessionByNom(String nomPossession) {
     return patrimoineRepository.getPatrimoinePossessionByNom(nomPossession);
   }
+
+  public void deletePatrimoinePossessionByNom(String nomPossession) {
+    patrimoineRepository.deletePatrimoinePossessionByNom(nomPossession);
+  }
 }

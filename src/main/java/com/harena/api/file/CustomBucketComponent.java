@@ -4,7 +4,9 @@ import java.io.File;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Component;
+import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Request;
 import software.amazon.awssdk.services.s3.model.ListObjectsV2Response;
 import software.amazon.awssdk.services.s3.model.S3Object;
@@ -35,5 +37,14 @@ public class CustomBucketComponent {
   // take the file corresponding to this name
   public Optional<File> loadFilesFromS3(String filename) {
     return Optional.of(bucketComponent.download(filename));
+  }
+
+  public void deleteFileFromS3Bucket(String fileName) {
+    S3Client client = S3Client.builder().region(Region.of("eu-west-1")).build();
+
+    DeleteObjectRequest deleteObjectRequest =
+        DeleteObjectRequest.builder().bucket(bucketComponent.getBucketName()).key(fileName).build();
+
+    client.deleteObject(deleteObjectRequest);
   }
 }

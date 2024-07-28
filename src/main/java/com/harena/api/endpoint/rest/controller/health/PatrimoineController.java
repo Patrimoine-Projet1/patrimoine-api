@@ -48,4 +48,10 @@ public class PatrimoineController {
       @RequestParam String nomPossession, @RequestParam String nomPatrimoine) {
     return patrimoineService.getPatrimoinePossessionByNom(nomPossession);
   }
+
+  @DeleteMapping("/patrimoines/{nom_patrimoine}/possessions/{nom_possession}")
+  public void deletePatrimoinePossessionByNom(
+      @RequestParam String nomPossession, @RequestParam String nomPatrimoine) {
+    patrimoineService.deletePatrimoinePossessionByNom(nomPossession);
+  }
 }
