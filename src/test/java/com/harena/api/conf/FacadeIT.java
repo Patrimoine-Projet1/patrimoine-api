@@ -10,7 +10,6 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
 @PojaGenerated
-@SuppressWarnings("all")
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @Slf4j
 public class FacadeIT {
