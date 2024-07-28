@@ -60,7 +60,10 @@ public class PatrimoineRepository {
 
   public List<Possession> getPatrimoinePossessions(int page, int size, String nomPatrimoine) {
     List<File> files = customBucketComponent.loadFilesFromS3(page, size);
-    return files.stream().map(this::crupdatePossession).toList();
+    List<File> filteredFile =
+        files.stream().filter(file -> file.getName().contains(nomPatrimoine)).toList();
+
+    return filteredFile.stream().map(this::crupdatePossession).toList();
   }
 
   public Possession crupdatePossession(File file) {
