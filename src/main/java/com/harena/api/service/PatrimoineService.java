@@ -6,6 +6,7 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import school.hei.patrimoine.modele.Patrimoine;
+import school.hei.patrimoine.modele.possession.Possession;
 
 @Service
 @AllArgsConstructor
@@ -26,5 +27,9 @@ public class PatrimoineService {
 
   public Patrimoine crupdatePatrimoinePossessions(File file, String nomPatrimoine) {
     return patrimoineRepository.crupdatePatrimoinePossessions(file, nomPatrimoine);
+  }
+
+  public List<Possession> getPatrimoinePossessions(int page, int size, String nomPatrimoine) {
+    return patrimoineRepository.getPatrimoinePossessions(page, size, nomPatrimoine);
   }
 }

@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Repository;
 import school.hei.patrimoine.modele.Patrimoine;
+import school.hei.patrimoine.modele.possession.Possession;
 import school.hei.patrimoine.serialisation.Serialiseur;
 
 @Repository
@@ -52,6 +53,21 @@ public class PatrimoineRepository {
       String convertPatrimoinePossessionsAsString = FileUtils.readFileToString(file, UTF_8);
       return (Patrimoine) serialiseur.deserialise(convertPatrimoinePossessionsAsString);
 
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public List<Possession> getPatrimoinePossessions(int page, int size, String nomPatrimoine) {
+    List<File> files = customBucketComponent.loadFilesFromS3(page, size);
+    return files.stream().map(this::crupdatePossession).toList();
+  }
+
+  public Possession crupdatePossession(File file) {
+    try {
+      // convert possession as a string
+      String convertPossessionAsString = FileUtils.readFileToString(file, UTF_8);
+      return (Possession) serialiseur.deserialise(convertPossessionAsString);
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
