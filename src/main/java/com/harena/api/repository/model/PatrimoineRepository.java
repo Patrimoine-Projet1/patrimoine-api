@@ -75,4 +75,13 @@ public class PatrimoineRepository {
       throw new RuntimeException(e);
     }
   }
+
+  public Possession getPatrimoinePossessionByNom(String nomPossession) {
+    File file =
+        customBucketComponent
+            .loadFilesFromS3(nomPossession)
+            .orElseThrow(() -> new RuntimeException(nomPossession));
+
+    return crupdatePossession(file);
+  }
 }

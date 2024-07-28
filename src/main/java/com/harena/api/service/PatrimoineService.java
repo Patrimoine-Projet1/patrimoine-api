@@ -32,4 +32,8 @@ public class PatrimoineService {
   public List<Possession> getPatrimoinePossessions(int page, int size, String nomPatrimoine) {
     return patrimoineRepository.getPatrimoinePossessions(page, size, nomPatrimoine);
   }
+
+  public Possession getPatrimoinePossessionByNom(String nomPossession) {
+    return patrimoineRepository.getPatrimoinePossessionByNom(nomPossession);
+  }
 }

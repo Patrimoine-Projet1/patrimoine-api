@@ -42,4 +42,10 @@ public class PatrimoineController {
       @RequestParam String nomPatrimoine) {
     return patrimoineService.getPatrimoinePossessions(page, size, nomPatrimoine);
   }
+
+  @GetMapping("/patrimoines/{nom_patrimoine}/possessions/{nom_possession}")
+  public Possession getPatrimoinePossessionByNom(
+      @RequestParam String nomPossession, @RequestParam String nomPatrimoine) {
+    return patrimoineService.getPatrimoinePossessionByNom(nomPossession);
+  }
 }
