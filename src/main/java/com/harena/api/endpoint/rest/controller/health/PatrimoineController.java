@@ -46,12 +46,12 @@ public class PatrimoineController {
   @GetMapping("/patrimoines/{nom_patrimoine}/possessions/{nom_possession}")
   public Possession getPatrimoinePossessionByNom(
       @RequestParam String nomPossession, @RequestParam String nomPatrimoine) {
-    return patrimoineService.getPatrimoinePossessionByNom(nomPossession);
+    return patrimoineService.getPatrimoinePossessionByNom(nomPossession, nomPatrimoine);
   }
 
   @DeleteMapping("/patrimoines/{nom_patrimoine}/possessions/{nom_possession}")
   public void deletePatrimoinePossessionByNom(
       @RequestParam String nomPossession, @RequestParam String nomPatrimoine) {
-    patrimoineService.deletePatrimoinePossessionByNom(nomPossession);
+    patrimoineService.deletePatrimoinePossessionByNom(nomPossession, nomPatrimoine);
   }
 }

@@ -76,7 +76,7 @@ public class PatrimoineRepository {
     }
   }
 
-  public Possession getPatrimoinePossessionByNom(String nomPossession) {
+  public Possession getPatrimoinePossessionByNom(String nomPossession, String nomPatrimoine) {
     File file =
         customBucketComponent
             .loadFilesFromS3(nomPossession)
@@ -85,7 +85,7 @@ public class PatrimoineRepository {
     return crupdatePossession(file);
   }
 
-  public void deletePatrimoinePossessionByNom(String nomPossession) {
+  public void deletePatrimoinePossessionByNom(String nomPossession, String nomPatrimoine) {
     customBucketComponent.deleteFileFromS3Bucket(nomPossession);
   }
 }

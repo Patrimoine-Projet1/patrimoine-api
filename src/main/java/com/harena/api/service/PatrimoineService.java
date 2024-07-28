@@ -33,11 +33,11 @@ public class PatrimoineService {
     return patrimoineRepository.getPatrimoinePossessions(page, size, nomPatrimoine);
   }
 
-  public Possession getPatrimoinePossessionByNom(String nomPossession) {
-    return patrimoineRepository.getPatrimoinePossessionByNom(nomPossession);
+  public Possession getPatrimoinePossessionByNom(String nomPossession, String nomPatrimoine) {
+    return patrimoineRepository.getPatrimoinePossessionByNom(nomPossession, nomPatrimoine);
   }
 
-  public void deletePatrimoinePossessionByNom(String nomPossession) {
-    patrimoineRepository.deletePatrimoinePossessionByNom(nomPossession);
+  public void deletePatrimoinePossessionByNom(String nomPossession, String nomPatrimoine) {
+    patrimoineRepository.deletePatrimoinePossessionByNom(nomPossession, nomPatrimoine);
   }
 }
