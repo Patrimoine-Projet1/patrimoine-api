@@ -14,10 +14,9 @@ import school.hei.patrimoine.modele.possession.Possession;
 import school.hei.patrimoine.serialisation.Serialiseur;
 
 @Repository
-@AllArgsConstructor
 public class PatrimoineRepository {
-  private CustomBucketComponent customBucketComponent;
-  private Serialiseur serialiseur;
+  private final CustomBucketComponent customBucketComponent;
+  private final Serialiseur serialiseur;
 
   public PatrimoineRepository(CustomBucketComponent customBucketComponent) {
     this.customBucketComponent = customBucketComponent;
