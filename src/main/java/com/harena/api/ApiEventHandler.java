@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 @PojaGenerated
-@SuppressWarnings("all")
 public class ApiEventHandler implements RequestStreamHandler {
   private static final SpringBootLambdaContainerHandler<AwsProxyRequest, AwsProxyResponse> handler;
 
